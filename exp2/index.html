@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: #08df44;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html">Return to Main Lab Index</a>
+    <hr>
+
+    <h2>Client Consultation Request Form</h2>
+
+    <form action="#" method="post">
+
+        <!-- NAME -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+        <!-- Password -->
+        <label for="password">Create Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <!-- Number -->
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="18" max="100"><br><br>
+
+        <!-- Date -->
+        <label for="dob">Consultation Date:</label><br>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <!-- Radio Buttons -->
+        <label>Project Scope:</label><br>
+        <input type="radio" name="scope" value="residential" required> Residential
+        <input type="radio" name="scope" value="commercial" required> Commercial<br><br>
+
+        <!-- Checkbox -->
+        <label>Required Services:</label><br>
+        <input type="checkbox" name="skills" value="design"> Architectural Design
+        <input type="checkbox" name="skills" value="interior"> Interior Design
+        <input type="checkbox" name="skills" value="landscape"> Landscaping<br><br>
+
+        <!-- Dropdown -->
+        <label for="style">Preferred Architectural Style:</label><br>
+        <select id="style" name="style">
+            <option value="modern">Modern</option>
+            <option value="classical">Traditional</option>
+            <option value="industrial">Industrial</option>
+        </select><br><br>
+
+        <!-- City Input -->
+        <label for="city">Project City:</label><br>
+        <input type="text" id="city" name="city" placeholder="Enter your city"><br><br>
+
+        <!-- Submit -->
+        <button type="submit">Request Consultation</button>
+
+    </form>
+
+</body>
+
+</html>
