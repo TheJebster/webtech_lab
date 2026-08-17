@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural Firm Site</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f1e8;
+            color: #2f3e46;
+        }
+
+        .header {
+            background-color: #354f52;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #cad2c5;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: #52796f;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Responsive Architectural Firm Site</h1>
+        <p>Designing buildings and functional spaces.</p>
+    </div>
+
+    <!-- Main Section -->
+    <div class="container">
+
+        <!-- Services -->
+        <div class="box">
+            <h2>Our Services</h2>
+            <p>We provide residential and commercial architectural design services.</p>
+            <ul>
+                <li>Residential Design</li>
+                <li>Commercial Design</li>
+                <li>Interior Planning</li>
+            </ul>
+        </div>
+
+        <!-- Project Section -->
+        <div class="box">
+            <h2>Our Project</h2>
+            <img src="building.png"
+            alt="Modern Building">
+            <p><em>and many more to come...</em></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="box">
+            <h2>Contact Us</h2>
+            <p>Email: admin@karunya.edu</p>
+            <p>Phone: +1234567890</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
