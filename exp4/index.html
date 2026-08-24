@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural Firm Site</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f1e8;
+            color: #2f3e46;
+        }
+
+        /* 1. Rounded Corners */
+        .header {
+            background-color: #354f52;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .back-link {
+            padding: 10px 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #cad2c5;
+            padding: 20px;
+            flex: 1;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(47, 62, 70, 0.25);
+        }
+
+        .box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 2. Border Image */
+        .award {
+            border: 20px solid transparent;
+            border-image: url("border.png") 30 round;
+        }
+
+        /* 3. Multiple Backgrounds */
+        .banner {
+            min-height: 240px;
+            background-image:
+                url("pattern.png"),
+                url("building.png");
+            background-position: left top, center;
+            background-repeat: repeat, no-repeat;
+            background-size: auto, cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner h2 {
+            background-color: rgba(53, 79, 82, 0.85);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        /* 4. Background Size */
+        .size-demo {
+            height: 180px;
+            background-image: url("building.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .size-cover {
+            background-size: cover;
+        }
+
+        .size-contain {
+            background-size: contain;
+            background-color: white;
+        }
+
+        /* 5. Pseudo-Classes */
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            font-size: 16px;
+            border: 2px solid #52796f;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #354f52;
+            background-color: #e9ffe9;
+        }
+
+        input:required {
+            background-color: #fff8dc;
+        }
+
+        input[type="email"]:valid {
+            color: blue;
+        }
+
+        input[type="email"]:invalid {
+            color: red;
+        }
+
+        button:hover {
+            background-color: #52796f;
+        }
+
+        /* 6. Adjacent Sibling Selector */
+        .reveal-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .projectImg {
+            opacity: 0.2;
+            transition: opacity 0.3s ease;
+        }
+
+        .projectName:hover + .projectImg {
+            opacity: 1;
+        }
+
+        /* 7. nth-child() */
+        .striped {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .striped th,
+        .striped td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .striped thead tr {
+            background-color: #354f52;
+            color: white;
+        }
+
+        .striped tbody tr:nth-child(odd) {
+            background-color: #e2e8df;
+        }
+
+        .striped tbody tr:nth-child(even) {
+            background-color: #f5f1e8;
+        }
+
+        .striped tbody tr:hover {
+            background-color: #d4a373;
+        }
+
+        a {
+            color: #52796f;
+        }
+
+        @media screen and (max-width: 800px) {
+
+            .container,
+            .size-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Architectural Firm Site</h1>
+        <p>Designing buildings and functional spaces with modern styling.</p>
+    </div>
+
+    <!-- Back Link -->
+    <div class="back-link">
+        <a href="../index.html">Return to Main Lab Index</a>
+    </div>
+
+    <!-- Main Section -->
+    <div class="container">
+
+        <!-- Services -->
+        <div class="box">
+            <h2>Our Services</h2>
+            <p>We provide residential and commercial architectural design services.</p>
+            <ul>
+                <li>Residential Design</li>
+                <li>Commercial Design</li>
+                <li>Interior Planning</li>
+            </ul>
+        </div>
+
+        <!-- Project Section with Border Image -->
+        <div class="box award">
+            <h2>Our Project</h2>
+            <img src="building.png" alt="Modern Building">
+            <p><em>Framed using a border image.</em></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="box">
+            <h2>Contact Us</h2>
+            <p>Email: admin@karunya.edu</p>
+            <p>Phone: +1234567890</p>
+        </div>
+
+    </div>
+
+    <!-- Multiple Backgrounds Section -->
+    <div class="container">
+        <div class="box banner">
+            <h2>Blueprint Grid over a Modern Build</h2>
+        </div>
+    </div>
+
+    <!-- Background Size Section -->
+    <div class="container size-container">
+        <div class="box">
+            <h2>background-size: cover</h2>
+            <div class="size-demo size-cover"></div>
+            <p>The image fills the whole box and crops the edges if needed.</p>
+        </div>
+
+        <div class="box">
+            <h2>background-size: contain</h2>
+            <div class="size-demo size-contain"></div>
+            <p>The whole image fits inside the box, keeping its aspect ratio.</p>
+        </div>
+    </div>
+
+    <!-- Pseudo Class Section -->
+    <div class="container">
+        <div class="box">
+            <h2>Client Enquiry Form</h2>
+            <form action="#">
+                <label for="name">Name (required):</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+
+                <button type="submit">Submit Enquiry</button>
+            </form>
+            <p>Required fields are tinted yellow, focused fields turn green,
+                and the email text turns blue when valid and red when invalid.</p>
+        </div>
+    </div>
+
+    <!-- Adjacent Sibling Selector Section -->
+    <div class="container">
+        <div class="box">
+            <h2>Project Gallery</h2>
+
+            <table class="reveal-table">
+                <tr>
+                    <td class="projectName"><strong>Lakeside Villa</strong></td>
+                    <td class="projectImg">
+                        <img src="building.png" width="60" alt="Villa">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="projectName"><strong>Tech Park Tower</strong></td>
+                    <td class="projectImg">
+                        <img src="building.png" width="60" alt="Tower">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="projectName"><strong>City Mall</strong></td>
+                    <td class="projectImg">
+                        <img src="building.png" width="60" alt="Mall">
+                    </td>
+                </tr>
+            </table>
+
+            <p>Hover over a project name to reveal its preview image.</p>
+        </div>
+    </div>
+
+    <!-- nth-child Section -->
+    <div class="container">
+        <div class="box">
+            <h2>Completed Projects</h2>
+
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Location</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JMR Hostel</td>
+                        <td>Coimbatore</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>HR Hostel</td>
+                        <td>Coimbatore</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>Shopping Complex</td>
+                        <td>Chennai</td>
+                        <td>2026</td>
+                    </tr>
+                    <tr>
+                        <td>Community Hall</td>
+                        <td>Madurai</td>
+                        <td>2026</td>
+                    </tr>
+                    <tr>
+                        <td>Riverside Apartments</td>
+                        <td>Kochi</td>
+                        <td>2026</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Rows are striped with :nth-child(odd) and :nth-child(even),
+                and the row under the cursor is highlighted on hover.</p>
+        </div>
+    </div>
+
+    <hr>
+
+
+
+</body>
+
+</html>
