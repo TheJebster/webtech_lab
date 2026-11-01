@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 380px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 14px;
+            background-color: #08df44;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .filters button {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .filters button.active {
+            background-color: #354f52;
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        li span {
+            flex: 1;
+            margin-left: 8px;
+            word-break: break-all;
+        }
+
+        .delete-btn {
+            background-color: #ff4d4d;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        #counter {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html">Return to Main Lab Index</a>
+    <hr>
+
+    <h2>Project Task Tracker</h2>
+
+    <div class="container">
+        <form id="taskForm">
+            <input id="taskInput" type="text" placeholder="Add a new task...">
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="filters">
+            <button type="button" id="filterAll" class="active">All</button>
+            <button type="button" id="filterOpen">Open</button>
+            <button type="button" id="filterCompleted">Completed</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <p id="counter"></p>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
