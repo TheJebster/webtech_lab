@@ -1,7 +1,9 @@
 // Run with: mongosh < commands.js
 
 // 1. Database and collection
+show dbs;
 use archFirmDB;
+db;
 db.createCollection("projects");
 show collections;
 

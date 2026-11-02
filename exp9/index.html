@@ -63,6 +63,7 @@
         function App() {
             const [theme, setTheme] = useState("light");
             const [text, setText] = useState("");
+            const [filter, setFilter] = useState("all");
             const [projects, setProjects] = useState([
                 { id: 1, name: "Lakeside Residence - Final Drawings", done: true },
                 { id: 2, name: "City Library - Site Survey", done: false },
@@ -90,6 +91,10 @@
 
             const completed = projects.filter(p => p.done).length;
 
+            let visible = projects;
+            if (filter === "open") visible = projects.filter(p => !p.done);
+            if (filter === "completed") visible = projects.filter(p => p.done);
+
             return (
                 <div className={"app " + theme}>
                     <Header theme={theme} toggleTheme={toggleTheme} />
@@ -111,7 +116,18 @@
                             />
                             <button type="submit">Add</button>
                         </form>
-                        <ProjectList projects={projects} onToggle={toggleProject} onDelete={deleteProject} />
+                        <div className="filters">
+                            {["all", "open", "completed"].map(f => (
+                                <button
+                                    key={f}
+                                    className={filter === f ? "active" : ""}
+                                    onClick={() => setFilter(f)}
+                                >
+                                    {f}
+                                </button>
+                            ))}
+                        </div>
+                        <ProjectList projects={visible} onToggle={toggleProject} onDelete={deleteProject} />
                     </div>
                 </div>
             );

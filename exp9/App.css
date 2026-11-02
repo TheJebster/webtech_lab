@@ -46,6 +46,33 @@ button:hover {
     opacity: 0.9;
 }
 
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.filters button {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 6px 12px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.filters button.active {
+    background-color: #354f52;
+    color: white;
+}
+
+li:hover {
+    background-color: rgba(128, 128, 128, 0.15);
+}
+
+.stat-card:hover {
+    border-color: #354f52;
+}
+
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
