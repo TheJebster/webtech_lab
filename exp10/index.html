@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Shell Commands</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 600px;
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        h3 {
+            color: #354f52;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html">Return to Main Lab Index</a>
+    <hr>
+
+    <h2>Working with MongoDB using Shell Commands</h2>
+    <p>Database: <strong>archFirmDB</strong> | Collection: <strong>projects</strong> (full script: <a href="commands.js">commands.js</a>)</p>
+
+    <div class="container">
+        <h3>1. Database and Collection</h3>
+        <pre>use archFirmDB;
+db.createCollection("projects");
+show collections;</pre>
+
+        <h3>2. Insert</h3>
+        <pre>db.projects.insertOne({
+  project_id: 101,
+  name: "Lakeside Residence",
+  type: "Residential",
+  budget: 5000000,
+  tags: ["modern", "lake"]
+});
+
+db.projects.insertMany([
+  { project_id: 102, name: "City Library", type: "Public", budget: 20000000, tags: ["glass", "eco"] },
+  { project_id: 103, name: "Heritage Hotel", type: "Commercial", budget: 15000000, tags: ["restoration"] },
+  { project_id: 104, name: "Tiny Cabin", type: "Residential", budget: 800000, tags: ["wood", "eco"] }
+]);</pre>
+
+        <h3>3. Read</h3>
+        <pre>db.projects.find();
+db.projects.find({ type: "Residential" });
+db.projects.find({ budget: { $gte: 10000000 } });
+db.projects.find({ $or: [{ type: "Public" }, { tags: "wood" }] });
+db.projects.find({}, { name: 1, budget: 1, _id: 0 });
+db.projects.findOne({ project_id: 101 });
+db.projects.countDocuments({ type: "Residential" });</pre>
+
+        <h3>4. Update</h3>
+        <pre>db.projects.updateOne({ project_id: 101 }, { $set: { budget: 5500000 } });
+db.projects.updateMany({ type: "Residential" }, { $push: { tags: "private" } });
+db.projects.updateOne({ project_id: 102 }, { $inc: { budget: 1000000 } });</pre>
+
+        <h3>5. Index</h3>
+        <pre>db.projects.createIndex({ project_id: 1 }, { unique: true });
+db.projects.getIndexes();</pre>
+
+        <h3>6. Delete</h3>
+        <pre>db.projects.deleteOne({ project_id: 103 });
+db.projects.deleteMany({ budget: { $lt: 1000000 } });
+db.projects.drop();
+db.dropDatabase();</pre>
+    </div>
+
+</body>
+
+</html>
